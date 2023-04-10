@@ -25,7 +25,7 @@ const getRanks = async () => {
             <b>Rank: ${coin.rank}</b>
             </p>
             <p class="info-item">
-            <b>Price: ${Math.round(coin.priceUsd)}$</b>
+            <b>Price: ${coin.priceUsd}$</b>
             </p>
             <p class="info-item">
             <b>Market Cap: ${Math.round(coin.marketCapUsd)}$</b>

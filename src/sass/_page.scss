@@ -1,0 +1,84 @@
+body {
+  font-family: 'Cormorant Infant', serif;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  background-color: lighten(#7f8ff4, 20%);
+  color: #2f2f37;
+}
+
+.header-form__btn {
+  display: inline-block;
+  padding: 12px 36px;
+  margin-left: -100px;
+  background: #7f8ff4;
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 0;
+  border-radius: 2px;
+  box-shadow: 0 0 10px 2px #7f8ff4;
+  transition: all 200ms ease-in;
+  cursor: pointer;
+
+  &:hover, &:focus {
+    background: #fff;
+    color: #7f8ff4;
+  }
+}
+
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  // background-color: lighten(#7f8ff4, 10%)
+}
+
+.header-title{
+  font-weight: 700;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.header-form {
+  &__input {
+      width: 360px;
+      background: #fff;
+      color: #2f2f37;
+      font: inherit;
+      box-shadow: 0 6px 10px 0 #7f8ff4;
+      border: 0;
+      outline: 0;
+      padding: 22px 18px;
+    }
+}
+
+.info-list {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  background-color: lighten(#7f8ff4, 20%);
+  
+  &__item {
+    width: 390px;
+    background: #fff;
+    color: #2f2f37;
+    font: inherit;
+    box-shadow: 0 6px 10px 0 #7f8ff4;
+    border: 0;
+    outline: 0;
+    padding: 22px 18px;
+  }
+}
+
+.info {
+  &-item {
+    font: inherit;
+    // font-weight: 700;
+    font-size: 20px;
+  }
+}

@@ -21,7 +21,7 @@ body {
   transition: all 200ms ease-in;
   cursor: pointer;
 
-  &:hover, &:focus {
+  &:hover {
     background: #fff;
     color: #7f8ff4;
   }

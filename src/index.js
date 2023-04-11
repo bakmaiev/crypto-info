@@ -1,4 +1,5 @@
 import { CoincapAPI } from './js/coingeckoAPI';
+import { Notify } from 'notiflix';
 
 const coincapAPI = new CoincapAPI();
 
@@ -11,12 +12,13 @@ const getRanks = async () => {
     const seekedCoin = searchInputEl.value.toLowerCase().trim();
     const response = await coincapAPI.getCoins();
     const { data } = response.data;
-    data.forEach(coin => {
+    for (const coin of data) {
+      if (!seekedCoin) return Notify.failure('Enter something.');
       if (
         seekedCoin === coin.id.toLowerCase() ||
         seekedCoin === coin.symbol.toLowerCase()
       ) {
-        infoListEl.innerHTML = `<div class="info-list__item">
+        return (infoListEl.innerHTML = `<div class="info-list__item">
           <div class="info">
             <p class="info-item">
             <b>Name: ${coin.name}</b>
@@ -34,9 +36,37 @@ const getRanks = async () => {
             <b>Volume: ${Math.round(coin.volumeUsd24Hr)}$</b>
             </p>
           </div>
-        </div>`;
+        </div>`);
       }
-    });
+    }
+    // data.forEach(coin => {
+    //   if (!seekedCoin) return Notify.failure('Enter something.');
+    //   if (
+    //     seekedCoin === coin.id.toLowerCase() ||
+    //     seekedCoin === coin.symbol.toLowerCase()
+    //   ) {
+    //     infoListEl.innerHTML = `<div class="info-list__item">
+    //       <div class="info">
+    //         <p class="info-item">
+    //         <b>Name: ${coin.name}</b>
+    //         </p>
+    //         <p class="info-item">
+    //         <b>Rank: ${coin.rank}</b>
+    //         </p>
+    //         <p class="info-item">
+    //         <b>Price: ${coin.priceUsd}$</b>
+    //         </p>
+    //         <p class="info-item">
+    //         <b>Market Cap: ${Math.round(coin.marketCapUsd)}$</b>
+    //         </p>
+    //         <p class="info-item">
+    //         <b>Volume: ${Math.round(coin.volumeUsd24Hr)}$</b>
+    //         </p>
+    //       </div>
+    //     </div>`;
+    //   }
+    //   return Notify.failure('We have not found such cryptocurrency.');
+    // });
   } catch (err) {
     console.log;
   }
